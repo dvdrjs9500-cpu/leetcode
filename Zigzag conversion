@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* convert(char* s, int numRows) {
+    if (!s) return NULL;
+    
+    int len = strlen(s);
+    
+    // Edge case: when 1 row or string length is smaller than rows, order doesn't change
+    if (numRows <= 1 || numRows >= len) {
+        char* result = (char*)malloc((len + 1) * sizeof(char));
+        strcpy(result, s);
+        return result;
+    }
+
+    char* result = (char*)malloc((len + 1) * sizeof(char));
+    int idx = 0;
+    int cycleLen = 2 * numRows - 2;
+
+    for (int r = 0; r < numRows; r++) {
+        for (int j = r; j < len; j += cycleLen) {
+            // Add main vertical column element
+            result[idx++] = s[j];
+
+            // Add intermediate diagonal element (for middle rows)
+            int diagIdx = j + cycleLen - 2 * r;
+            if (r != 0 && r != numRows - 1 && diagIdx < len) {
+                result[idx++] = s[diagIdx];
+            }
+        }
+    }
+
+    result[len] = '\0';
+    return result;
+}
