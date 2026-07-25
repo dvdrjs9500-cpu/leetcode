@@ -1,0 +1,48 @@
+#include <stdbool.h>
+#include <string.h>
+
+bool isMatch(const char *s, const char *p) {
+    int sLen = strlen(s);
+    int pLen = strlen(p);
+
+    // dp[i][j] will be true if s[0...i-1] matches p[0...j-1]
+    bool dp[sLen + 1][pLen + 1];
+    memset(dp, 0, sizeof(dp));
+
+    // Base case: empty string matches empty pattern
+    dp[0][0] = true;
+
+    // Base case: empty string 's' matching patterns like "a*", "a*b*", ".*"
+    for (int j = 2; j <= pLen; j++) {
+        if (p[j - 1] == '*') {
+            dp[0][j] = dp[0][j - 2];
+        }
+    }
+
+    // Fill DP table
+    for (int i = 1; i <= sLen; i++) {
+        for (int j = 1; j <= pLen; j++) {
+            
+            // Case 1: Pattern is '*'
+            if (p[j - 1] == '*') {
+                // Choice 1: Treat '*' as 0 occurrences of preceding char (look back 2 steps in p)
+                dp[i][j] = dp[i][j - 2];
+
+                // Choice 2: Treat '*' as 1+ occurrences if preceding char matches current s character
+                bool charMatches = (p[j - 2] == '.' || p[j - 2] == s[i - 1]);
+                if (charMatches) {
+                    dp[i][j] = dp[i][j] || dp[i - 1][j];
+                }
+            } 
+            // Case 2: Exact character match or '.' wildcard
+            else {
+                bool charMatches = (p[j - 1] == '.' || p[j - 1] == s[i - 1]);
+                if (charMatches) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                }
+            }
+        }
+    }
+
+    return dp[sLen][pLen];
+}
