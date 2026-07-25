@@ -1,0 +1,21 @@
+#include <stdbool.h>
+
+bool isPalindrome(int x) {
+    // Negative numbers cannot be palindromes.
+    // Numbers ending in 0 (except 0 itself) cannot be palindromes.
+    if (x < 0 || (x % 10 == 0 && x != 0)) {
+        return false;
+    }
+
+    int reversedHalf = 0;
+
+    // Reverse the trailing digits until reversedHalf is >= x
+    while (x > reversedHalf) {
+        reversedHalf = reversedHalf * 10 + x % 10;
+        x /= 10;
+    }
+
+    // Even-length numbers: x == reversedHalf (e.g., 1221 -> x = 12, reversedHalf = 12)
+    // Odd-length numbers:  x == reversedHalf / 10 (e.g., 12321 -> x = 12, reversedHalf = 123)
+    return x == reversedHalf || x == reversedHalf / 10;
+}
