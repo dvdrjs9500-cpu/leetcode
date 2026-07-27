@@ -10,7 +10,7 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 
 - 🎯 **Goal:** Build strong DSA fundamentals for placements & competitive coding
 - 📅 **Routine:** 2 problems/day
-- 🧠 **Focus areas:** Arrays, Strings, Linked Lists, Math, Two Pointers, and more (expanding as I go)
+- 🧠 **Focus areas:** Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go)
 
 ## ✅ Progress
 
@@ -24,6 +24,16 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 6 | Zigzag Conversion | Convert a string into zigzag pattern |
 | 7 | Reverse Integer | Reverse digits of an integer with overflow handling |
 | 8 | String to Integer (atoi) | Convert a string to an integer |
+| 9 | Palindrome Number | Determine whether an integer is a palindrome |
+| 10 | Regular Expression Matching | Implement regex matching with '.' and '*' support |
+| 11 | Container With Most Water | Find two lines that together with x-axis form a container containing most water |
+| 12 | Integer to Roman | Convert an integer to a Roman numeral |
+| 13 | Roman to Integer | Convert a Roman numeral to an integer |
+| 14 | Longest Common Prefix | Find the longest common prefix string amongst an array of strings |
+| 15 | 3Sum | Find all unique triplets in the array that sum to zero |
+| 16 | 3Sum Closest | Find three integers in array such that sum is closest to target |
+| 17 | Letter Combinations of a Phone Number | Return all possible letter combinations representing digit sequence |
+| 18 | 4Sum | Find all unique quadruplets in the array that sum to target |
 
 *(Table updated as new problems are solved)*
 
