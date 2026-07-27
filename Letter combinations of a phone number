@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Mapping of digits to letters
+const char* phoneMap[] = {
+    "",     // 0
+    "",     // 1
+    "abc",  // 2
+    "def",  // 3
+    "ghi",  // 4
+    "jkl",  // 5
+    "mno",  // 6
+    "pqrs", // 7
+    "tuv",  // 8
+    "wxyz"  // 9
+};
+
+void backtrack(char* digits, int index, char* currentCombo, char** result, int* returnSize) {
+    // Base case: if current combination length matches digits length, add to result
+    if (digits[index] == '\0') {
+        currentCombo[index] = '\0';
+        result[*returnSize] = strdup(currentCombo);
+        (*returnSize)++;
+        return;
+    }
+
+    const char* letters = phoneMap[digits[index] - '0'];
+    for (int i = 0; letters[i] != '\0'; i++) {
+        currentCombo[index] = letters[i];
+        backtrack(digits, index + 1, currentCombo, result, returnSize);
+    }
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+char** letterCombinations(char* digits, int* returnSize) {
+    *returnSize = 0;
+    
+    if (digits == NULL || digits[0] == '\0') {
+        return NULL;
+    }
+
+    int len = strlen(digits);
+
+    // Maximum possible combinations is 4^4 = 256 (for digits '7' and '9')
+    int maxCombinations = 1;
+    for (int i = 0; i < len; i++) {
+        int digit = digits[i] - '0';
+        maxCombinations *= strlen(phoneMap[digit]);
+    }
+
+    char** result = (char**)malloc(maxCombinations * sizeof(char*));
+    char* currentCombo = (char*)malloc((len + 1) * sizeof(char));
+
+    backtrack(digits, 0, currentCombo, result, returnSize);
+
+    free(currentCombo);
+    return result;
+}       
