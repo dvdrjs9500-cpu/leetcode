@@ -1,0 +1,43 @@
+#include <stdlib.h>
+#include <string.h>
+
+void backtrack(int n, int open, int close, char* current, int index, char** result, int* returnSize) {
+    // Base case: string reaches length 2 * n
+    if (index == 2 * n) {
+        current[index] = '\0';
+        result[*returnSize] = (char*)malloc((2 * n + 1) * sizeof(char));
+        strcpy(result[*returnSize], current);
+        (*returnSize)++;
+        return;
+    }
+
+    // Add an opening parenthesis if we haven't reached n yet
+    if (open < n) {
+        current[index] = '(';
+        backtrack(n, open + 1, close, current, index + 1, result, returnSize);
+    }
+
+    // Add a closing parenthesis if it wouldn't exceed open parentheses
+    if (close < open) {
+        current[index] = ')';
+        backtrack(n, open, close + 1, current, index + 1, result, returnSize);
+    }
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+char** generateParenthesis(int n, int* returnSize) {
+    // Upper bound for Catalan number C_n (n = 8 gives C_8 = 1430)
+    int maxCombinations = 5000;
+    
+    char** result = (char**)malloc(maxCombinations * sizeof(char*));
+    char* current = (char*)malloc((2 * n + 1) * sizeof(char));
+    
+    *returnSize = 0;
+    
+    backtrack(n, 0, 0, current, 0, result, returnSize);
+    
+    free(current);
+    return result;
+}
