@@ -1,0 +1,58 @@
+#include <stdlib.h>
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+// Helper function to merge two sorted linked lists
+struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
+    struct ListNode dummy;
+    dummy.next = NULL;
+    struct ListNode* tail = &dummy;
+
+    while (l1 != NULL && l2 != NULL) {
+        if (l1->val <= l2->val) {
+            tail->next = l1;
+            l1 = l1->next;
+        } else {
+            tail->next = l2;
+            l2 = l2->next;
+        }
+        tail = tail->next;
+    }
+
+    if (l1 != NULL) {
+        tail->next = l1;
+    } else {
+        tail->next = l2;
+    }
+
+    return dummy.next;
+}
+
+// Divide-and-conquer strategy to merge sub-ranges of lists
+struct ListNode* mergeKListsHelper(struct ListNode** lists, int start, int end) {
+    if (start > end) {
+        return NULL;
+    }
+    if (start == end) {
+        return lists[start];
+    }
+
+    int mid = start + (end - start) / 2;
+    struct ListNode* left = mergeKListsHelper(lists, start, mid);
+    struct ListNode* right = mergeKListsHelper(lists, mid + 1, end);
+
+    return mergeTwoLists(left, right);
+}
+
+struct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {
+    if (listsSize == 0 || lists == NULL) {
+        return NULL;
+    }
+    return mergeKListsHelper(lists, 0, listsSize - 1);
+}
