@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+struct ListNode* swapPairs(struct ListNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+
+    struct ListNode dummy;
+    dummy.next = head;
+    struct ListNode* prev = &dummy;
+
+    while (prev->next != NULL && prev->next->next != NULL) {
+        struct ListNode* first = prev->next;
+        struct ListNode* second = prev->next->next;
+
+        // Swapping
+        first->next = second->next;
+        second->next = first;
+        prev->next = second;
+
+        // Move pointers forward for the next pair
+        prev = first;
+    }
+
+    return dummy.next;
+}
