@@ -1,0 +1,145 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define TABLE_SIZE 10007
+
+// Structure for hash map entries
+typedef struct HashNode {
+    char *word;
+    int count;
+    struct HashNode *next;
+} HashNode;
+
+// Hash function for string key
+unsigned int hash(const char *str) {
+    unsigned int hash_val = 5381;
+    int c;
+    while ((c = *str++)) {
+        hash_val = ((hash_val << 5) + hash_val) + c; // hash_val * 33 + c
+    }
+    return hash_val % TABLE_SIZE;
+}
+
+// Insert or update count in the hash map
+void insert(HashNode **table, const char *word, int delta) {
+    unsigned int index = hash(word);
+    HashNode *node = table[index];
+
+    while (node) {
+        if (strcmp(node->word, word) == 0) {
+            node->count += delta;
+            return;
+        }
+        node = node->next;
+    }
+
+    // Node not found, create a new one
+    HashNode *new_node = (HashNode *)malloc(sizeof(HashNode));
+    new_node->word = strdup(word);
+    new_node->count = delta;
+    new_node->next = table[index];
+    table[index] = new_node;
+}
+
+// Search for word frequency in the hash map
+int get_count(HashNode **table, const char *word) {
+    unsigned int index = hash(word);
+    HashNode *node = table[index];
+
+    while (node) {
+        if (strcmp(node->word, word) == 0) {
+            return node->count;
+        }
+        node = node->next;
+    }
+    return 0;
+}
+
+// Clear the hash map memory
+void free_table(HashNode **table) {
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        HashNode *node = table[i];
+        while (node) {
+            HashNode *temp = node;
+            node = node->next;
+            free(temp->word);
+            free(temp);
+        }
+        table[i] = NULL;
+    }
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* findSubstring(char* s, char** words, int wordsSize, int* returnSize) {
+    *returnSize = 0;
+    if (!s || !words || wordsSize == 0) return NULL;
+
+    int s_len = strlen(s);
+    int word_len = strlen(words[0]);
+    int total_len = word_len * wordsSize;
+
+    if (s_len < total_len) return NULL;
+
+    int *result = (int *)malloc(s_len * sizeof(int));
+
+    // Target map to hold required word frequencies
+    HashNode *target_counts[TABLE_SIZE] = {NULL};
+    for (int i = 0; i < wordsSize; i++) {
+        insert(target_counts, words[i], 1);
+    }
+
+    char *temp_word = (char *)malloc((word_len + 1) * sizeof(char));
+    temp_word[word_len] = '\0';
+
+    // Check every starting offset from 0 to word_len - 1
+    for (int i = 0; i < word_len; i++) {
+        int left = i;
+        int right = i;
+        int count = 0;
+
+        HashNode *window_counts[TABLE_SIZE] = {NULL};
+
+        while (right + word_len <= s_len) {
+            // Extract current word chunk
+            strncpy(temp_word, s + right, word_len);
+            right += word_len;
+
+            int target_freq = get_count(target_counts, temp_word);
+
+            if (target_freq > 0) {
+                insert(window_counts, temp_word, 1);
+                count++;
+
+                // If word count exceeds target frequency, shrink window from left
+                while (get_count(window_counts, temp_word) > target_freq) {
+                    char left_word[31];
+                    strncpy(left_word, s + left, word_len);
+                    left_word[word_len] = '\0';
+
+                    insert(window_counts, left_word, -1);
+                    count--;
+                    left += word_len;
+                }
+
+                // Complete valid concatenated substring found
+                if (count == wordsSize) {
+                    result[(*returnSize)++] = left;
+                }
+            } else {
+                // Invalid word encountered -> reset window
+                free_table(window_counts);
+                count = 0;
+                left = right;
+            }
+        }
+        free_table(window_counts);
+    }
+
+    free(temp_word);
+    free_table(target_counts);
+
+    return result;
+}
