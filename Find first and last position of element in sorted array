@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+/**
+ * Helper function to find either the starting or ending index of the target.
+ * 
+ * @param nums      Pointer to the sorted array.
+ * @param numsSize  Size of the array.
+ * @param target    Value to search for.
+ * @param isFirst   True to search for the starting index, False for the ending index.
+ * @return          Index of target if found, otherwise -1.
+ */
+int findBound(int* nums, int numsSize, int target, bool isFirst) {
+    int left = 0;
+    int right = numsSize - 1;
+    int bound = -1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (nums[mid] == target) {
+            bound = mid;
+            if (isFirst) {
+                right = mid - 1; // Keep searching towards the left
+            } else {
+                left = mid + 1;  // Keep searching towards the right
+            }
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return bound;
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
+    *returnSize = 2;
+    int* result = (int*)malloc(2 * sizeof(int));
+    
+    // Default result when target is not found or array is empty
+    result[0] = -1;
+    result[1] = -1;
+
+    if (numsSize == 0) {
+        return result;
+    }
+
+    int first = findBound(nums, numsSize, target, true);
+
+    // If target doesn't exist in the array, no need to search for the last position
+    if (first == -1) {
+        return result;
+    }
+
+    int last = findBound(nums, numsSize, target, false);
+
+    result[0] = first;
+    result[1] = last;
+
+    return result;
+}
