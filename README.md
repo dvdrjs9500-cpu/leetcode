@@ -1,24 +1,25 @@
 # 🚀 LeetCode Journey
 
-Solving 2 LeetCode problems every day — building consistency, sharpening problem-solving skills, and preparing for placements one problem at a time.
+Solving 5 LeetCode problems every day — building consistency, sharpening problem-solving skills, and preparing for placements one problem at a time.
 
 > "Success isn't always about greatness. It's about consistency. Consistent hard work gains success. Greatness will come." — Dwayne Johnson
 
 ---
 
 ## 📌 About
-This repository documents my daily practice of Data Structures & Algorithms through LeetCode. The goal is simple: 2 problems a day, every day, no excuses.
 
-* 🎯 **Goal:** Build strong DSA fundamentals for placements & competitive coding
-* 📅 **Routine:** 2 problems/day
-* 🧠 **Focus areas:** Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go)
+This repository documents my daily practice of Data Structures & Algorithms through LeetCode. The goal is simple: **2 problems a day, every day, no excuses.**
+
+- 🎯 **Goal:** Build strong DSA fundamentals for placements & competitive coding  
+- 📅 **Routine:** 2 problems/day  
+- 🧠 **Focus areas:** Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go)
 
 ---
 
 ## ✅ Progress
 
 | # | Problem | Description |
-|---|---|---|
+|---|---------|--------------|
 | 1 | Two Sum | Find two indices that add up to a target |
 | 2 | Add Two Numbers | Add two numbers represented as linked lists |
 | 3 | Longest Substring Without Repeating Characters | Find the longest substring with unique characters |
@@ -47,20 +48,26 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 26 | Remove Duplicates from Sorted Array | Remove duplicates in-place from a sorted array |
 | 27 | Remove Element | Remove all occurrences of a specified value in-place |
 | 28 | Find the Index of the First Occurrence in a String | Return the index of the first occurrence of needle in haystack |
+| 29 | Find First and Last Position of Element in Sorted Array | Find the first and last position of a target value in a sorted array |
+| 30 | Search Insert Position | Implement binary search to find the index where a target should be inserted |
+| 31 | Valid Sudoku | Validate a Sudoku board according to Sudoku rules |
+| 32 | Sudoku Solver | Solve a Sudoku puzzle using validation and backtracking |
+| 33 | Count and Say | Generate the nth term of the count-and-say sequence |
 
 *(Table updated as new problems are solved)*
 
 ---
 
 ## 🛠️ Tech
+
 Solutions are written and organized problem-wise, with clean, readable code and comments where needed.
 
 ---
 
 ## 📈 Why I'm Doing This
-Consistency beats intensity. Two problems a day may seem small, but over weeks and months, it compounds into real skill, confidence, and interview readiness. This repo is proof of the process — not just the destination.
-
-⭐ *Feel free to star this repo if you're on a similar journey — let's grind together!*
 
 Consistency beats intensity. Two problems a day may seem small, but over weeks and months, it compounds into real skill, confidence, and interview readiness. This repo is proof of the process — not just the destination.
-⭐ Feel free to star this repo if you're on a similar journey — let's grind together!
+
+---
+
+⭐ **Feel free to star this repo if you're on a similar journey — let's grind together!**
