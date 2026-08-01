@@ -11,7 +11,7 @@ Solving 5 LeetCode problems every day — building consistency, sharpening probl
 This repository documents my daily practice of Data Structures & Algorithms through LeetCode. The goal is simple: **2 problems a day, every day, no excuses.**
 
 - 🎯 **Goal:** Build strong DSA fundamentals for placements & competitive coding  
-- 📅 **Routine:** 2 problems/day  
+- 📅 **Routine:** 5 problems/day  
 - 🧠 **Focus areas:** Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go)
 
 ---
@@ -53,6 +53,11 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 31 | Valid Sudoku | Validate a Sudoku board according to Sudoku rules |
 | 32 | Sudoku Solver | Solve a Sudoku puzzle using validation and backtracking |
 | 33 | Count and Say | Generate the nth term of the count-and-say sequence |
+| 34 | Combination Sum | Find all unique combinations that sum to a target using backtracking |
+| 35 | Combination Sum II | Find all unique combinations that sum to a target, using each number once |
+| 36 | First Missing Positive | Find the smallest missing positive integer in an unsorted array |
+| 37 | Trapping Rain Water | Compute how much water can be trapped after raining |
+| 38 | Multiply Strings | Multiply two numbers represented as strings |
 
 *(Table updated as new problems are solved)*
 
