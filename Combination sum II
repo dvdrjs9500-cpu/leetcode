@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Comparison function for sorting candidates array
+int compare(const void* a, const void* b) {
+    return (*(int*)a - *(int*)b);
+}
+
+void backtrack(int* candidates, int candidatesSize, int target, int start,
+               int* currentCombo, int currentSize,
+               int*** result, int* returnSize, int** returnColumnSizes, int* capacity) {
+    if (target == 0) {
+        if (*returnSize >= *capacity) {
+            *capacity *= 2;
+            *result = (int**)realloc(*result, (*capacity) * sizeof(int*));
+            *returnColumnSizes = (int*)realloc(*returnColumnSizes, (*capacity) * sizeof(int));
+        }
+
+        (*result)[*returnSize] = (int*)malloc(currentSize * sizeof(int));
+        for (int i = 0; i < currentSize; i++) {
+            (*result)[*returnSize][i] = currentCombo[i];
+        }
+        (*returnColumnSizes)[*returnSize] = currentSize;
+        (*returnSize)++;
+        return;
+    }
+
+    for (int i = start; i < candidatesSize; i++) {
+        // Pruning: if current candidate exceeds target, no need to check further as candidates are sorted
+        if (candidates[i] > target) {
+            break;
+        }
+
+        // Skip duplicates in the same depth of recursion
+        if (i > start && candidates[i] == candidates[i - 1]) {
+            continue;
+        }
+
+        currentCombo[currentSize] = candidates[i];
+        // Pass 'i + 1' to ensure each element is used at most once
+        backtrack(candidates, candidatesSize, target - candidates[i], i + 1,
+                  currentCombo, currentSize + 1,
+                  result, returnSize, returnColumnSizes, capacity);
+    }
+}
+
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *returnColumnSizes.
+ * Note: Both returned array and *returnColumnSizes must be malloced, assume caller calls free().
+ */
+int** combinationSum2(int* candidates, int candidatesSize, int target, int* returnSize, int** returnColumnSizes) {
+    // Sort elements to handle duplicates easily and allow early pruning
+    qsort(candidates, candidatesSize, sizeof(int), compare);
+
+    int capacity = 150;
+    *returnSize = 0;
+
+    int** result = (int**)malloc(capacity * sizeof(int*));
+    *returnColumnSizes = (int*)malloc(capacity * sizeof(int));
+
+    int* currentCombo = (int*)malloc(candidatesSize * sizeof(int));
+
+    backtrack(candidates, candidatesSize, target, 0, currentCombo, 0, &result, returnSize, returnColumnSizes, &capacity);
+
+    free(currentCombo);
+    return result;
+}
