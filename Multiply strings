@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* multiply(char* num1, char* num2) {
+    int len1 = strlen(num1);
+    int len2 = strlen(num2);
+
+    // If either number is "0", the product is "0"
+    if ((len1 == 1 && num1[0] == '0') || (len2 == 1 && num2[0] == '0')) {
+        char* result = (char*)malloc(2 * sizeof(char));
+        result[0] = '0';
+        result[1] = '\0';
+        return result;
+    }
+
+    // Array to store product digits; max length of product is len1 + len2
+    int* pos = (int*)calloc(len1 + len2, sizeof(int));
+
+    // Perform position-by-position multiplication
+    for (int i = len1 - 1; i >= 0; i--) {
+        for (int j = len2 - 1; j >= 0; j--) {
+            int mul = (num1[i] - '0') * (num2[j] - '0');
+            int p1 = i + j;
+            int p2 = i + j + 1;
+
+            int sum = mul + pos[p2];
+            pos[p2] = sum % 10;
+            pos[p1] += sum / 10;
+        }
+    }
+
+    // Convert digit array back to string, skipping leading zeros
+    char* result = (char*)malloc((len1 + len2 + 1) * sizeof(char));
+    int idx = 0;
+    int i = 0;
+
+    while (i < len1 + len2 && pos[i] == 0) {
+        i++;
+    }
+
+    while (i < len1 + len2) {
+        result[idx++] = pos[i++] + '0';
+    }
+    result[idx] = '\0';
+
+    free(pos);
+    return result;
+}
