@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void backtrack(int* candidates, int candidatesSize, int target, int start, 
+               int* currentCombo, int currentSize, 
+               int*** result, int* returnSize, int** returnColumnSizes, int* capacity) {
+    // Base Case: target achieved
+    if (target == 0) {
+        if (*returnSize >= *capacity) {
+            *capacity *= 2;
+            *result = (int**)realloc(*result, (*capacity) * sizeof(int*));
+            *returnColumnSizes = (int*)realloc(*returnColumnSizes, (*capacity) * sizeof(int));
+        }
+        
+        (*result)[*returnSize] = (int*)malloc(currentSize * sizeof(int));
+        for (int i = 0; i < currentSize; i++) {
+            (*result)[*returnSize][i] = currentCombo[i];
+        }
+        (*returnColumnSizes)[*returnSize] = currentSize;
+        (*returnSize)++;
+        return;
+    }
+
+    // Base Case: exceeded target
+    if (target < 0) {
+        return;
+    }
+
+    // Explore combinations starting from the current index to avoid duplicates
+    for (int i = start; i < candidatesSize; i++) {
+        currentCombo[currentSize] = candidates[i];
+        // Pass 'i' as start index because the same element can be reused multiple times
+        backtrack(candidates, candidatesSize, target - candidates[i], i, 
+                  currentCombo, currentSize + 1, 
+                  result, returnSize, returnColumnSizes, capacity);
+    }
+}
+
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *returnColumnSizes.
+ * Note: Both returned array and *returnColumnSizes must be malloced, assume caller calls free().
+ */
+int** combinationSum(int* candidates, int candidatesSize, int target, int* returnSize, int** returnColumnSizes) {
+    int capacity = 150;
+    *returnSize = 0;
+    
+    int** result = (int**)malloc(capacity * sizeof(int*));
+    *returnColumnSizes = (int*)malloc(capacity * sizeof(int));
+    
+    // Maximum possible depth is target / min(candidates[i]) -> max 40 / 2 = 20
+    int* currentCombo = (int*)malloc((target + 1) * sizeof(int));
+
+    backtrack(candidates, candidatesSize, target, 0, currentCombo, 0, &result, returnSize, returnColumnSizes, &capacity);
+
+    free(currentCombo);
+    return result;
+}
