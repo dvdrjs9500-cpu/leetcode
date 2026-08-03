@@ -10,9 +10,12 @@ Solving 5 LeetCode problems every day — building consistency, sharpening probl
 
 This repository documents my daily practice of Data Structures & Algorithms through LeetCode. The goal is simple: **2 problems a day, every day, no excuses.**
 
-- 🎯 **Goal:** Build strong DSA fundamentals for placements & competitive coding  
-- 📅 **Routine:** 5 problems/day  
-- 🧠 **Focus areas:** Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go)
+| | |
+|---|---|
+| 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
+| 📅 **Routine** | 5 problems/day |
+| 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go) |
+| 📊 **Solved So Far** | 43 problems |
 
 ---
 
@@ -58,6 +61,11 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 36 | First Missing Positive | Find the smallest missing positive integer in an unsorted array |
 | 37 | Trapping Rain Water | Compute how much water can be trapped after raining |
 | 38 | Multiply Strings | Multiply two numbers represented as strings |
+| 39 | Wildcard Matching | Implement wildcard pattern matching with '?' and '*' support |
+| 40 | Jump Game II | Find the minimum number of jumps to reach the last index |
+| 41 | Permutations | Generate all possible permutations of an array |
+| 42 | Permutations II | Generate all unique permutations of an array with duplicates |
+| 43 | Rotate Image | Rotate an n x n matrix 90 degrees in-place |
 
 *(Table updated as new problems are solved)*
 
