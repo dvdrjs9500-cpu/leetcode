@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void backtrack(int row, int n, int* cols, int* diag1, int* diag2, int* count) {
+    if (row == n) {
+        (*count)++;
+        return;
+    }
+
+    for (int col = 0; col < n; col++) {
+        int d1 = row - col + n - 1; // Index for main diagonal (\)
+        int d2 = row + col;         // Index for anti-diagonal (/)
+
+        // Check if column or diagonals are already occupied
+        if (!cols[col] && !diag1[d1] && !diag2[d2]) {
+            // Place Queen
+            cols[col] = diag1[d1] = diag2[d2] = 1;
+
+            // Recurse to next row
+            backtrack(row + 1, n, cols, diag1, diag2, count);
+
+            // Backtrack (Remove Queen)
+            cols[col] = diag1[d1] = diag2[d2] = 0;
+        }
+    }
+}
+
+int totalNQueens(int n) {
+    int count = 0;
+
+    // Lookup arrays for conflict checks
+    int* cols = (int*)calloc(n, sizeof(int));
+    int* diag1 = (int*)calloc(2 * n - 1, sizeof(int));
+    int* diag2 = (int*)calloc(2 * n - 1, sizeof(int));
+
+    // Start backtracking from row 0
+    backtrack(0, n, cols, diag1, diag2, &count);
+
+    // Clean up allocated tracking memory
+    free(cols);
+    free(diag1);
+    free(diag2);
+
+    return count;
+}
