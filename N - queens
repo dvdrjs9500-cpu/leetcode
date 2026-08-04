@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+// Helper structure to manage output memory
+typedef struct {
+    char*** solutions;
+    int count;
+    int capacity;
+} SolutionList;
+
+void backtrack(int row, int n, int* cols, int* diag1, int* diag2, char** currentBoard, SolutionList* list) {
+    if (row == n) {
+        // Found a valid N-Queens solution; resize if needed
+        if (list->count >= list->capacity) {
+            list->capacity *= 2;
+            list->solutions = (char***)realloc(list->solutions, list->capacity * sizeof(char**));
+        }
+
+        // Allocate memory for the saved board layout
+        char** boardCopy = (char**)malloc(n * sizeof(char*));
+        for (int i = 0; i < n; i++) {
+            boardCopy[i] = (char*)malloc((n + 1) * sizeof(char));
+            strcpy(boardCopy[i], currentBoard[i]);
+        }
+
+        list->solutions[list->count++] = boardCopy;
+        return;
+    }
+
+    for (int col = 0; col < n; col++) {
+        int d1 = row - col + n - 1; // Index for main diagonal (\)
+        int d2 = row + col;         // Index for anti-diagonal (/)
+
+        // Check if placement is safe
+        if (!cols[col] && !diag1[d1] && !diag2[d2]) {
+            // Place Queen
+            currentBoard[row][col] = 'Q';
+            cols[col] = diag1[d1] = diag2[d2] = 1;
+
+            // Recurse to next row
+            backtrack(row + 1, n, cols, diag1, diag2, currentBoard, list);
+
+            // Backtrack (Remove Queen)
+            currentBoard[row][col] = '.';
+            cols[col] = diag1[d1] = diag2[d2] = 0;
+        }
+    }
+}
+
+char*** solveNQueens(int n, int* returnSize, int** returnColumnSizes) {
+    SolutionList list;
+    list.capacity = 16;
+    list.count = 0;
+    list.solutions = (char***)malloc(list.capacity * sizeof(char**));
+
+    // Allocate current working board
+    char** currentBoard = (char**)malloc(n * sizeof(char*));
+    for (int i = 0; i < n; i++) {
+        currentBoard[i] = (char*)malloc((n + 1) * sizeof(char));
+        memset(currentBoard[i], '.', n);
+        currentBoard[i][n] = '\0'; // Null-terminate string
+    }
+
+    // Lookup arrays for conflict checks
+    int* cols = (int*)calloc(n, sizeof(int));
+    int* diag1 = (int*)calloc(2 * n - 1, sizeof(int));
+    int* diag2 = (int*)calloc(2 * n - 1, sizeof(int));
+
+    // Start backtracking from row 0
+    backtrack(0, n, cols, diag1, diag2, currentBoard, &list);
+
+    // Prepare return column sizes array
+    *returnSize = list.count;
+    *returnColumnSizes = (int*)malloc(list.count * sizeof(int));
+    for (int i = 0; i < list.count; i++) {
+        (*returnColumnSizes)[i] = n;
+    }
+
+    // Clean up temporary tracking memory
+    for (int i = 0; i < n; i++) {
+        free(currentBoard[i]);
+    }
+    free(currentBoard);
+    free(cols);
+    free(diag1);
+    free(diag2);
+
+    return list.solutions;
+}
