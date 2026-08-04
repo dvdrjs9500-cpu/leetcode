@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define HASH_SIZE 20011 // Prime number larger than 2 * max_elements for low collisions
+
+// Hash table node structure
+typedef struct {
+    char* key;           // Sorted version of the string
+    char** group;        // Array of original anagram strings
+    int count;           // Current number of strings in this group
+    int capacity;        // Allocated capacity for group array
+} HashNode;
+
+// Comparison function for qsort to sort characters within a string
+int compareChars(const void* a, const void* b) {
+    return (*(char*)a - *(char*)b);
+}
+
+// Simple polynomial rolling hash function for strings
+unsigned int hash(const char* str) {
+    unsigned int h = 5381;
+    while (*str) {
+        h = ((h << 5) + h) + (*str++); // h * 33 + char
+    }
+    return h % HASH_SIZE;
+}
+
+char*** groupAnagrams(char** strs, int strsSize, int* returnSize, int** returnColumnSizes) {
+    if (strsSize == 0) {
+        *returnSize = 0;
+        *returnColumnSizes = NULL;
+        return NULL;
+    }
+
+    // Allocate hash table
+    HashNode* hashTable = (HashNode*)calloc(HASH_SIZE, sizeof(HashNode));
+
+    for (int i = 0; i < strsSize; i++) {
+        int len = strlen(strs[i]);
+        
+        // Create sorted key for the current string
+        char* sortedKey = (char*)malloc((len + 1) * sizeof(char));
+        strcpy(sortedKey, strs[i]);
+        qsort(sortedKey, len, sizeof(char), compareChars);
+
+        // Find or insert into hash table using linear probing
+        unsigned int index = hash(sortedKey);
+        while (hashTable[index].key != NULL && strcmp(hashTable[index].key, sortedKey) != 0) {
+            index = (index + 1) % HASH_SIZE;
+        }
+
+        // If key doesn't exist, initialize node
+        if (hashTable[index].key == NULL) {
+            hashTable[index].key = sortedKey;
+            hashTable[index].capacity = 8;
+            hashTable[index].count = 0;
+            hashTable[index].group = (char**)malloc(hashTable[index].capacity * sizeof(char*));
+        } else {
+            // Key already exists, free the temp sorted key
+            free(sortedKey);
+        }
+
+        // Resize array if necessary
+        if (hashTable[index].count >= hashTable[index].capacity) {
+            hashTable[index].capacity *= 2;
+            hashTable[index].group = (char**)realloc(
+                hashTable[index].group, 
+                hashTable[index].capacity * sizeof(char*)
+            );
+        }
+
+        // Add original string to the bucket
+        hashTable[index].group[hashTable[index].count++] = strs[i];
+    }
+
+    // Count distinct groups
+    int uniqueGroups = 0;
+    for (int i = 0; i < HASH_SIZE; i++) {
+        if (hashTable[i].key != NULL) {
+            uniqueGroups++;
+        }
+    }
+
+    // Prepare return structures
+    char*** result = (char***)malloc(uniqueGroups * sizeof(char**));
+    *returnColumnSizes = (int*)malloc(uniqueGroups * sizeof(int));
+    *returnSize = uniqueGroups;
+
+    int resIndex = 0;
+    for (int i = 0; i < HASH_SIZE; i++) {
+        if (hashTable[i].key != NULL) {
+            result[resIndex] = hashTable[i].group;
+            (*returnColumnSizes)[resIndex] = hashTable[i].count;
+            
+            // Clean up hash table key
+            free(hashTable[i].key);
+            resIndex++;
+        }
+    }
+
+    free(hashTable);
+    return result;
+}
