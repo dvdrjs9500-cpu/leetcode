@@ -1,0 +1,29 @@
+#include <stdlib.h>
+
+char* getPermutation(int n, int k) {
+    char* result = (char*)malloc((n + 1) * sizeof(char));
+    char numbers[9];
+    int fact[10];
+    
+    fact[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        fact[i] = fact[i - 1] * i;
+        numbers[i - 1] = '0' + i;
+    }
+    
+    k--; // Convert to 0-based index
+    
+    for (int i = 0; i < n; i++) {
+        int index = k / fact[n - 1 - i];
+        result[i] = numbers[index];
+        
+        for (int j = index; j < n - 1 - i; j++) {
+            numbers[j] = numbers[j + 1];
+        }
+        
+        k %= fact[n - 1 - i];
+    }
+    
+    result[n] = '\0';
+    return result;
+}
