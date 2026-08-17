@@ -10,19 +10,19 @@ Solving 5 LeetCode problems every day — building consistency, sharpening probl
 
 This repository documents my daily practice of Data Structures & Algorithms through LeetCode. The goal is simple: **2 problems a day, every day, no excuses.**
 
-| | |
-|---|---|
+|  |  |
+| --- | --- |
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 5 problems/day |
-| 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, and more (expanding as I go) |
-| 📊 **Solved So Far** | 43 problems |
+| 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
+| 📊 **Solved So Far** | 60 problems |
 
 ---
 
 ## ✅ Progress
 
 | # | Problem | Description |
-|---|---------|--------------|
+| --- | --- | --- |
 | 1 | Two Sum | Find two indices that add up to a target |
 | 2 | Add Two Numbers | Add two numbers represented as linked lists |
 | 3 | Longest Substring Without Repeating Characters | Find the longest substring with unique characters |
@@ -66,6 +66,23 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 41 | Permutations | Generate all possible permutations of an array |
 | 42 | Permutations II | Generate all unique permutations of an array with duplicates |
 | 43 | Rotate Image | Rotate an n x n matrix 90 degrees in-place |
+| 44 | Group Anagrams | Group an array of strings into anagrams |
+| 45 | Pow(x, n) | Calculate x raised to the power n |
+| 46 | N-Queens | Place n queens on an n x n chessboard so that no two queens attack each other |
+| 47 | N-Queens II | Return the number of distinct solutions to the n-queens puzzle |
+| 48 | Maximum Subarray | Find the contiguous subarray which has the largest sum |
+| 49 | Spiral Matrix | Return all elements of an m x n matrix in spiral order |
+| 50 | Jump Game | Determine if you can reach the last index starting from the first index |
+| 51 | Merge Intervals | Merge all overlapping intervals into non-overlapping intervals |
+| 52 | Insert Interval | Insert a new interval into sorted non-overlapping intervals and merge |
+| 53 | Length of Last Word | Return the length of the last word in a string |
+| 54 | Spiral Matrix II | Generate an n x n matrix filled with elements from 1 to n² in spiral order |
+| 55 | Permutation Sequence | Return the kth permutation sequence of numbers from 1 to n |
+| 56 | Rotate List | Rotate a linked list to the right by k places |
+| 57 | Unique Paths | Calculate the number of possible unique paths from top-left to bottom-right |
+| 58 | Unique Paths II | Calculate unique paths in a grid containing obstacles |
+| 59 | Minimum Path Sum | Find a path from top-left to bottom-right minimizing the sum of numbers |
+| 60 | Valid Number | Determine whether a given string is a valid number |
 
 *(Table updated as new problems are solved)*
 
