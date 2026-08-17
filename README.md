@@ -10,19 +10,19 @@ Solving 5 LeetCode problems every day — building consistency, sharpening probl
 
 This repository documents my daily practice of Data Structures & Algorithms through LeetCode. The goal is simple: **2 problems a day, every day, no excuses.**
 
-|  |  |
-| --- | --- |
+| | |
+|---|---|
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 5 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 60 problems |
+| 📊 **Solved So Far** | 65 problems |
 
 ---
 
 ## ✅ Progress
 
 | # | Problem | Description |
-| --- | --- | --- |
+|---|---------|--------------|
 | 1 | Two Sum | Find two indices that add up to a target |
 | 2 | Add Two Numbers | Add two numbers represented as linked lists |
 | 3 | Longest Substring Without Repeating Characters | Find the longest substring with unique characters |
@@ -51,38 +51,43 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 26 | Remove Duplicates from Sorted Array | Remove duplicates in-place from a sorted array |
 | 27 | Remove Element | Remove all occurrences of a specified value in-place |
 | 28 | Find the Index of the First Occurrence in a String | Return the index of the first occurrence of needle in haystack |
-| 29 | Find First and Last Position of Element in Sorted Array | Find the first and last position of a target value in a sorted array |
-| 30 | Search Insert Position | Implement binary search to find the index where a target should be inserted |
-| 31 | Valid Sudoku | Validate a Sudoku board according to Sudoku rules |
-| 32 | Sudoku Solver | Solve a Sudoku puzzle using validation and backtracking |
-| 33 | Count and Say | Generate the nth term of the count-and-say sequence |
-| 34 | Combination Sum | Find all unique combinations that sum to a target using backtracking |
-| 35 | Combination Sum II | Find all unique combinations that sum to a target, using each number once |
-| 36 | First Missing Positive | Find the smallest missing positive integer in an unsorted array |
-| 37 | Trapping Rain Water | Compute how much water can be trapped after raining |
-| 38 | Multiply Strings | Multiply two numbers represented as strings |
-| 39 | Wildcard Matching | Implement wildcard pattern matching with '?' and '*' support |
-| 40 | Jump Game II | Find the minimum number of jumps to reach the last index |
-| 41 | Permutations | Generate all possible permutations of an array |
-| 42 | Permutations II | Generate all unique permutations of an array with duplicates |
-| 43 | Rotate Image | Rotate an n x n matrix 90 degrees in-place |
-| 44 | Group Anagrams | Group an array of strings into anagrams |
-| 45 | Pow(x, n) | Calculate x raised to the power n |
-| 46 | N-Queens | Place n queens on an n x n chessboard so that no two queens attack each other |
-| 47 | N-Queens II | Return the number of distinct solutions to the n-queens puzzle |
-| 48 | Maximum Subarray | Find the contiguous subarray which has the largest sum |
-| 49 | Spiral Matrix | Return all elements of an m x n matrix in spiral order |
-| 50 | Jump Game | Determine if you can reach the last index starting from the first index |
-| 51 | Merge Intervals | Merge all overlapping intervals into non-overlapping intervals |
-| 52 | Insert Interval | Insert a new interval into sorted non-overlapping intervals and merge |
-| 53 | Length of Last Word | Return the length of the last word in a string |
-| 54 | Spiral Matrix II | Generate an n x n matrix filled with elements from 1 to n² in spiral order |
-| 55 | Permutation Sequence | Return the kth permutation sequence of numbers from 1 to n |
-| 56 | Rotate List | Rotate a linked list to the right by k places |
-| 57 | Unique Paths | Calculate the number of possible unique paths from top-left to bottom-right |
-| 58 | Unique Paths II | Calculate unique paths in a grid containing obstacles |
-| 59 | Minimum Path Sum | Find a path from top-left to bottom-right minimizing the sum of numbers |
-| 60 | Valid Number | Determine whether a given string is a valid number |
+| 29 | Divide Two Integers | Divide two integers without using multiplication, division, or mod operators |
+| 30 | Substring with Concatenation of All Words | Find all starting indices of substring(s) in a string that are a concatenation of each word |
+| 31 | Next Permutation | Rearrange numbers into the lexicographically next greater permutation of numbers |
+| 32 | Longest Valid Parentheses | Find the length of the longest valid (well-formed) parentheses substring |
+| 33 | Search in Rotated Sorted Array | Search a target value in an array that has been rotated at an unknown pivot point |
+| 34 | Find First and Last Position of Element in Sorted Array | Find the first and last position of a target value in a sorted array |
+| 35 | Search Insert Position | Implement binary search to find the index where a target should be inserted |
+| 36 | Valid Sudoku | Validate a Sudoku board according to Sudoku rules |
+| 37 | Sudoku Solver | Solve a Sudoku puzzle using validation and backtracking |
+| 38 | Count and Say | Generate the nth term of the count-and-say sequence |
+| 39 | Combination Sum | Find all unique combinations that sum to a target using backtracking |
+| 40 | Combination Sum II | Find all unique combinations that sum to a target, using each number once |
+| 41 | First Missing Positive | Find the smallest missing positive integer in an unsorted array |
+| 42 | Trapping Rain Water | Compute how much water can be trapped after raining |
+| 43 | Multiply Strings | Multiply two numbers represented as strings |
+| 44 | Wildcard Matching | Implement wildcard pattern matching with '?' and '*' support |
+| 45 | Jump Game II | Find the minimum number of jumps to reach the last index |
+| 46 | Permutations | Generate all possible permutations of an array |
+| 47 | Permutations II | Generate all unique permutations of an array with duplicates |
+| 48 | Rotate Image | Rotate an n x n matrix 90 degrees in-place |
+| 49 | Group Anagrams | Group an array of strings into anagrams |
+| 50 | Pow(x, n) | Calculate x raised to the power n |
+| 51 | N-Queens | Place n queens on an n x n chessboard so that no two queens attack each other |
+| 52 | N-Queens II | Return the number of distinct solutions to the n-queens puzzle |
+| 53 | Maximum Subarray | Find the contiguous subarray which has the largest sum |
+| 54 | Spiral Matrix | Return all elements of an m x n matrix in spiral order |
+| 55 | Jump Game | Determine if you can reach the last index starting from the first index |
+| 56 | Merge Intervals | Merge all overlapping intervals into non-overlapping intervals |
+| 57 | Insert Interval | Insert a new interval into sorted non-overlapping intervals and merge |
+| 58 | Length of Last Word | Return the length of the last word in a string |
+| 59 | Spiral Matrix II | Generate an n x n matrix filled with elements from 1 to n² in spiral order |
+| 60 | Permutation Sequence | Return the kth permutation sequence of numbers from 1 to n |
+| 61 | Rotate List | Rotate a linked list to the right by k places |
+| 62 | Unique Paths | Calculate the number of possible unique paths from top-left to bottom-right |
+| 63 | Unique Paths II | Calculate unique paths in a grid containing obstacles |
+| 64 | Minimum Path Sum | Find a path from top-left to bottom-right minimizing the sum of numbers |
+| 65 | Valid Number | Determine whether a given string is a valid number |
 
 *(Table updated as new problems are solved)*
 
