@@ -15,7 +15,7 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 5 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 65 problems |
+| 📊 **Solved So Far** | 67 problems |
 
 ---
 
@@ -88,6 +88,8 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 63 | Unique Paths II | Calculate unique paths in a grid containing obstacles |
 | 64 | Minimum Path Sum | Find a path from top-left to bottom-right minimizing the sum of numbers |
 | 65 | Valid Number | Determine whether a given string is a valid number |
+| 66 | Plus One | Increment a large integer represented as an integer array of digits by one |
+| 67 | Add Binary | Return the sum of two binary strings as a binary string |
 
 *(Table updated as new problems are solved)*
 
