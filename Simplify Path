@@ -1,0 +1,55 @@
+#include <stdlib.h>
+#include <string.h>
+
+char* simplifyPath(char* path) {
+    int len = strlen(path);
+    char** stack = (char**)malloc(len * sizeof(char*));
+    int top = 0;
+
+    int i = 0;
+    while (i < len) {
+        while (i < len && path[i] == '/') {
+            i++;
+        }
+        if (i >= len) {
+            break;
+        }
+
+        int start = i;
+        while (i < len && path[i] != '/') {
+            i++;
+        }
+        int partLen = i - start;
+
+        char* token = (char*)malloc((partLen + 1) * sizeof(char));
+        strncpy(token, path + start, partLen);
+        token[partLen] = '\0';
+
+        if (strcmp(token, ".") == 0) {
+            free(token);
+        } else if (strcmp(token, "..") == 0) {
+            if (top > 0) {
+                top--;
+                free(stack[top]);
+            }
+            free(token);
+        } else {
+            stack[top++] = token;
+        }
+    }
+
+    char* result = (char*)malloc((len + 2) * sizeof(char));
+    if (top == 0) {
+        strcpy(result, "/");
+    } else {
+        result[0] = '\0';
+        for (int j = 0; j < top; j++) {
+            strcat(result, "/");
+            strcat(result, stack[j]);
+            free(stack[j]);
+        }
+    }
+
+    free(stack);
+    return result;
+}
