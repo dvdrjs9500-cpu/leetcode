@@ -1,6 +1,6 @@
 # 🚀 LeetCode Journey
 
-Solving 5 LeetCode problems every day — building consistency, sharpening problem-solving skills, and preparing for placements one problem at a time.
+Solving 2 LeetCode problems every day — building consistency, sharpening problem-solving skills, and preparing for placements one problem at a time.
 
 > "Success isn't always about greatness. It's about consistency. Consistent hard work gains success. Greatness will come." — Dwayne Johnson
 
@@ -15,7 +15,7 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 5 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 71 problems |
+| 📊 **Solved So Far** | 73 problems |
 
 ---
 
@@ -94,6 +94,8 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 69 | Sqrt(x) | Compute and return the square root of x rounded down to the nearest integer |
 | 70 | Climbing Stairs | Find the number of distinct ways to climb to the top taking 1 or 2 steps |
 | 71 | Simplify Path | Transform an absolute Unix-style file path into its simplified canonical form |
+| 72 | Edit Distance | Find the minimum number of operations required to convert one word to another |
+| 73 | Set Matrix Zeroes | If an element in an m x n matrix is 0, set its entire row and column to 0 in-place |
 
 *(Table updated as new problems are solved)*
 
