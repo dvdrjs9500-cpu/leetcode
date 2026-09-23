@@ -15,7 +15,7 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 5 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 73 problems |
+| 📊 **Solved So Far** | 75 problems |
 
 ---
 
@@ -96,6 +96,8 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 71 | Simplify Path | Transform an absolute Unix-style file path into its simplified canonical form |
 | 72 | Edit Distance | Find the minimum number of operations required to convert one word to another |
 | 73 | Set Matrix Zeroes | If an element in an m x n matrix is 0, set its entire row and column to 0 in-place |
+| 74 | Search a 2D Matrix | Search for a target value in an m x n sorted matrix in O(log(m * n)) time |
+| 75 | Sort Colors | Sort an array containing red, white, and blue objects (0s, 1s, 2s) in-place |
 
 *(Table updated as new problems are solved)*
 
