@@ -15,7 +15,7 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 5 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 77 problems |
+| 📊 **Solved So Far** | 79 problems |
 
 ---
 
@@ -100,6 +100,8 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 75 | Sort Colors | Sort an array containing red, white, and blue objects (0s, 1s, 2s) in-place |
 | 76 | Minimum Window Substring | Find the minimum window in a string containing all characters of another string |
 | 77 | Combinations | Return all possible combinations of k numbers chosen from 1 to n using backtracking |
+| 78 | Subsets | Return all possible subsets (the power set) of an array of unique elements using backtracking |
+| 79 | Word Search | Determine if a word exists in a 2D character grid using backtracking and DFS |
 
 *(Table updated as new problems are solved)*
 
