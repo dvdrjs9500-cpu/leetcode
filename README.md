@@ -13,9 +13,9 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | | |
 |---|---|
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
-| 📅 **Routine** | 5 problems/day |
+| 📅 **Routine** | 2 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 79 problems |
+| 📊 **Solved So Far** | 83 problems |
 
 ---
 
@@ -102,6 +102,10 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 77 | Combinations | Return all possible combinations of k numbers chosen from 1 to n using backtracking |
 | 78 | Subsets | Return all possible subsets (the power set) of an array of unique elements using backtracking |
 | 79 | Word Search | Determine if a word exists in a 2D character grid using backtracking and DFS |
+| 80 | Remove Duplicates from Sorted Array II | Remove duplicates in-place so unique elements appear at most twice |
+| 81 | Search in Rotated Sorted Array II | Search for a target in a rotated sorted array with duplicates |
+| 82 | Remove Duplicates from Sorted List II | Delete all nodes that have duplicate numbers, leaving only distinct numbers |
+| 83 | Remove Duplicates from Sorted List | Delete all duplicates from a sorted linked list so that each element appears only once |
 
 *(Table updated as new problems are solved)*
 
