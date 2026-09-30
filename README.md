@@ -15,7 +15,7 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
 | 📅 **Routine** | 2 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 83 problems |
+| 📊 **Solved So Far** | 85 problems |
 
 ---
 
@@ -106,6 +106,8 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 81 | Search in Rotated Sorted Array II | Search for a target in a rotated sorted array with duplicates |
 | 82 | Remove Duplicates from Sorted List II | Delete all nodes that have duplicate numbers, leaving only distinct numbers |
 | 83 | Remove Duplicates from Sorted List | Delete all duplicates from a sorted linked list so that each element appears only once |
+| 84 | Largest Rectangle in Histogram | Find the area of the largest rectangle in a histogram using a monotonic stack |
+| 85 | Maximal Rectangle | Find the largest rectangle containing only 1's in a binary matrix using histogram reduction |
 
 *(Table updated as new problems are solved)*
 
