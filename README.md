@@ -1,6 +1,6 @@
 # 🚀 LeetCode Journey
 
-Solving 2 LeetCode problems every day — building consistency, sharpening problem-solving skills, and preparing for placements one problem at a time.
+Solving 5 LeetCode problems every day — building consistency, sharpening problem-solving skills, and preparing for placements one problem at a time.
 
 > "Success isn't always about greatness. It's about consistency. Consistent hard work gains success. Greatness will come." — Dwayne Johnson
 
@@ -13,9 +13,9 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | | |
 |---|---|
 | 🎯 **Goal** | Build strong DSA fundamentals for placements & competitive coding |
-| 📅 **Routine** | 2 problems/day |
+| 📅 **Routine** | 5 problems/day |
 | 🧠 **Focus Areas** | Arrays, Strings, Linked Lists, Math, Two Pointers, Backtracking, Dynamic Programming, and more (expanding as I go) |
-| 📊 **Solved So Far** | 85 problems |
+| 📊 **Solved So Far** | 87 problems |
 
 ---
 
@@ -108,6 +108,8 @@ This repository documents my daily practice of Data Structures & Algorithms thro
 | 83 | Remove Duplicates from Sorted List | Delete all duplicates from a sorted linked list so that each element appears only once |
 | 84 | Largest Rectangle in Histogram | Find the area of the largest rectangle in a histogram using a monotonic stack |
 | 85 | Maximal Rectangle | Find the largest rectangle containing only 1's in a binary matrix using histogram reduction |
+| 86 | Partition List | Partition a linked list around value x while preserving relative order |
+| 87 | Scramble String | Determine if a string is a scrambled version of another using memoized recursion |
 
 *(Table updated as new problems are solved)*
 
