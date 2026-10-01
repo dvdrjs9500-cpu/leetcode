@@ -1,0 +1,29 @@
+#include <stdlib.h>
+
+struct ListNode* partition(struct ListNode* head, int x) {
+    struct ListNode lessHead;
+    struct ListNode greaterHead;
+    
+    lessHead.next = NULL;
+    greaterHead.next = NULL;
+    
+    struct ListNode* less = &lessHead;
+    struct ListNode* greater = &greaterHead;
+    
+    struct ListNode* curr = head;
+    while (curr) {
+        if (curr->val < x) {
+            less->next = curr;
+            less = less->next;
+        } else {
+            greater->next = curr;
+            greater = greater->next;
+        }
+        curr = curr->next;
+    }
+    
+    greater->next = NULL;
+    less->next = greaterHead.next;
+    
+    return lessHead.next;
+}
